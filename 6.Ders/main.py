@@ -57,3 +57,29 @@ def deleteProduct(id):
     response = requests.delete(baseUrl + "/" + str(id)) 
     
 deleteProduct("dab1")
+
+def postCategory(postCategory):
+    if postCategory.get("name") != category.get("name"):
+        response = requests.post(baseUrl, json=postCategory)
+        return response.json()
+    else:
+        print("name kısmı aynı olamaz")
+    
+
+postCategory({
+    "description": "Deneme5",
+    "name": "Deneme5",
+})
+
+def putCategory(id,putCategory):
+    if putCategory.get("name") == category.get("name"):
+        response = requests.put(baseUrl+"/"+str(id),json=putCategory)
+        return response.json()
+    else:
+        print("name kısmı aynı olmak zorunda")
+    
+
+putCategory("4e1b",{
+    "description": "Deneme6",
+    "name": "Deneme6",
+})
